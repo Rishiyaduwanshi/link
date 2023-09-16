@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #FF5733, #FF5733);
+        }
+
+        .qr {
+            position: relative;
+        }
+
+        .upi-id {
+            margin-top: 4px;
+            font-size: 15px;
+            color: #000000;
+        }
+
+        .button {
+            position: absolute;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #000000;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .back-button {
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .copy-button {
+            bottom: 20px;
+            right: 20px;
+        }
+
+        /* Media queries */
+        @media (max-width: 768px) {
+            .button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            .upi-id {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .button {
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+
+            .upi-id {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="javascript:history.go(-1);" class="button back-button">Back</a>
+    <div class="qr">
+        <img src="AbhinavQR.jpeg" alt="UPI id = ">
+    </div>
+
+    <div class="upi-id">
+        UPI ID = 2810050501011dmsictmotkd@paytm
+    </div>
+
+    <button onclick="copyUPIID()" class="button copy-button">Copy UPI</button>
+
+    <script>
+        function copyUPIID() {
+            const upiID = " 2810050501011dmsictmotkd@paytm";
+            const tempTextArea = document.createElement("textarea");
+            tempTextArea.value = upiID;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempTextArea);
+            alert("UPI ID copied to clipboard: " + upiID);
+        }
+    </script>
+</body>
+</html>
